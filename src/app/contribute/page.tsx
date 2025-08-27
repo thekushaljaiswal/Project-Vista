@@ -14,7 +14,7 @@ export default function ContributePage() {
           Contribute a Project
         </h1>
         <p className="text-lg text-muted-foreground">
-          Share your work with the Geeks for Geeks community!
+          Share your work with the Project Vista community!
         </p>
       </header>
       

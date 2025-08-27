@@ -5,6 +5,9 @@ import { ThemeProvider } from '@/components/providers/theme-provider';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Toaster } from '@/components/ui/toaster';
+import SplashProvider from '@/components/providers/splash-provider';
+import PageTransition from '@/components/layout/PageTransition';
+import BackToTop from '@/components/layout/BackToTop';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -22,12 +25,17 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider>
-          <div className="flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <Toaster />
+          <SplashProvider>
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <PageTransition>
+                <main className="flex-1">{children}</main>
+              </PageTransition>
+              <Footer />
+            </div>
+            <BackToTop />
+            <Toaster />
+          </SplashProvider>
         </ThemeProvider>
       </body>
     </html>
