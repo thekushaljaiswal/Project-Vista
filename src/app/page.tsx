@@ -6,6 +6,8 @@ import { ProjectCard } from '@/components/ProjectCard';
 import { projects as allProjects } from '@/lib/projects';
 import type { Project } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -33,11 +35,14 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8">
       <header className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-primary mb-2">
-          Welcome to Project Vista
+          Welcome to Geeks for Geeks Projects
         </h1>
         <p className="text-lg text-muted-foreground">
-          Explore a curated collection of innovative projects.
+          Explore a curated collection of innovative projects from the community.
         </p>
+         <Button asChild className="mt-4">
+          <Link href="/contribute">Contribute Your Project</Link>
+        </Button>
       </header>
 
       <div className="mb-8 flex flex-col sm:flex-row gap-4">
