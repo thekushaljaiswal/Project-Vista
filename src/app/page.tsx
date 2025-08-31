@@ -17,7 +17,7 @@ export default function Home() {
       project.tags.forEach((tag) => allTags.add(tag));
     });
     return Array.from(allTags);
-  }, []);
+  }, [allProjects]);
 
   const filteredProjects = useMemo(() => {
     return allProjects.filter((project) => {
@@ -27,7 +27,7 @@ export default function Home() {
       const matchesTag = selectedTag ? project.tags.includes(selectedTag) : true;
       return matchesSearch && matchesTag;
     });
-  }, [searchTerm, selectedTag]);
+  }, [searchTerm, selectedTag, allProjects]);
 
   return (
     <div className="container mx-auto px-4 py-8">
